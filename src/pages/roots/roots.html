@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Nth root</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid (keyup.enter)="calculate()">
+		<ion-row>
+			<ion-col>
+        <ion-item>
+          <ion-label stacked>N</ion-label>
+          <ion-input type="number" value="{{nthRoot.value}}" [(ngModel)]="nthRoot.value" (change)="nChanged()"></ion-input>
+        </ion-item>
+			</ion-col>
+			<ion-col>
+        <ion-item>
+          <ion-label stacked>Nr</ion-label>
+          <ion-input type="number" [(ngModel)]="nthRoot.input" (change)="redrawCanvas()"></ion-input>
+        </ion-item>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+
+	<button id="calcRoot" ion-button full (click)="calculate()">
+		<span class="button-inner">Calculate {{nthRoot.txt}} root</span>
+	</button>
+
+  <ion-card>
+    <ion-card-header>
+      Graphical representation
+    </ion-card-header>
+    <ion-card-content>
+      <canvas id="nthroot_canvas">
+				Canvas is not supported by your devices browser.
+			</canvas>
+    </ion-card-content>
+
+    <ion-row no-padding>
+      <ion-col text-right>
+        <button ion-button clear small color="danger" icon-start (click)="calculate()">
+          <ion-icon name='refresh'></ion-icon>
+          Reload
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      Detailed result
+    </ion-card-header>
+    <ion-card-content>
+      {{result}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>

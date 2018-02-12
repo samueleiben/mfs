@@ -3,6 +3,9 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
+import { HomePage } from '../pages/home/home';
+import { RootsPage } from '../pages/roots/roots';
+import { UnitcirclePage } from '../pages/unitcircle/unitcircle';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -10,7 +13,10 @@ import { Clipboard } from '@ionic-native/clipboard';
 
 @NgModule({
   declarations: [
-    MyApp
+    MyApp,
+    HomePage,
+    RootsPage,
+    UnitcirclePage
   ],
   imports: [
     BrowserModule,
@@ -18,7 +24,10 @@ import { Clipboard } from '@ionic-native/clipboard';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp
+    MyApp,
+    HomePage,
+    RootsPage,
+    UnitcirclePage
   ],
   providers: [
     StatusBar,

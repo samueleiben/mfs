@@ -1,0 +1,18 @@
+<ion-content>
+  <h3>mfs</h3>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let c of components">
+        <ion-card (click)="openPage(c.page)">
+          <ion-card-header>
+            {{c.title}}
+          </ion-card-header>
+          <ion-card-content>
+            {{c.desc}}
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Nth root</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-range pin="true" [(ngModel)]="values.current" min="{{values.min}}" max="{{values.max}}" (ionChange)="redrawCanvas()">
+      <ion-label range-left>0°</ion-label>
+      <ion-label range-right>360°</ion-label>
+    </ion-range>
+  </ion-item>
+
+  <canvas id="unitcircle_canvas">
+    Canvas is not supported by your devices browser.
+  </canvas>
+
+  <ion-card>
+    <ion-card-header>
+      Result for {{values.current}}°
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label><font color="#FF0000">sin {{sin}}</font></ion-label>
+          <button ion-button icon-only item-end clear (click)="copySin()">
+            <ion-icon name="md-copy"></ion-icon>
+          </button>
+        </ion-item>
+        <ion-item>
+          <ion-label><font color="#00FF00">cos {{cos}}</font></ion-label>
+          <button ion-button icon-only item-end clear (click)="copyCos()">
+            <ion-icon name="md-copy"></ion-icon>
+          </button>
+        </ion-item>
+        <ion-item>
+          <ion-label><font color="#0000FF">tan {{tan}}</font></ion-label>
+          <button ion-button icon-only item-end clear (click)="copyTan()">
+            <ion-icon name="md-copy"></ion-icon>
+          </button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
