@@ -19,7 +19,7 @@ export class UnitcirclePage {
   constructor(public navCtrl: NavController, public plt: Platform, public clpb: Clipboard, private toastCtrl: ToastController) {
     this.clipboard = clpb;
 
-    this.canvasWidth = plt.width() - 40; // remove padding from device width
+    this.canvasWidth = plt.width();
     this.canvasHeight = this.canvasWidth; // canvas should be a square
 
     this.values = {
@@ -35,32 +35,34 @@ export class UnitcirclePage {
 
   redrawCanvas() {
     let canvas = document.getElementById('unitcircle_canvas') as HTMLCanvasElement;
+    var paddingY = 0.5;
+    var paddingX = 0.5;
 		if(canvas.getContext){
 			var ctx = canvas.getContext("2d");
 			canvas.width = this.canvasWidth;
 			canvas.height = this.canvasHeight;
-			ctx.setTransform(2, 0, 0, 2, 0, 0);
+			ctx.setTransform(2, 0, 0, 2, 0, 0); // transform canvas for better quality --> all the coordinates need to be half as big
 
 			ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 			// outer circle
 			ctx.beginPath();
-			ctx.arc(75, 75, 70, 0, 2 * Math.PI);
+			ctx.arc(this.canvasWidth / 4 + paddingX / 2, this.canvasHeight / 4 + paddingY / 2, this.canvasWidth / 4 - paddingX - paddingY, 0, 2 * Math.PI);
 			ctx.strokeStyle="#000000";
-			ctx.lineWidth = 3;
+			ctx.lineWidth = 2;
 			ctx.stroke();
 			ctx.lineWidth = 1;
 			// draw x-axis
 			ctx.beginPath()
-			ctx.moveTo(5, 75);
-			ctx.lineTo(75 + 70 + 5, 75);
+			ctx.moveTo(paddingX, this.canvasHeight / 4 + paddingY);
+			ctx.lineTo(this.canvasWidth - 2 * paddingX, this.canvasHeight / 4 + paddingY);
 			ctx.strokeStyle = "#000000";
 			ctx.setLineDash([5, 5]);
 			ctx.stroke();
 			// draw y-axis
 			ctx.beginPath()
-			ctx.moveTo(75, 5);
-			ctx.lineTo(75, 75 + 70 + 5);
+			ctx.moveTo(this.canvasWidth / 4 + paddingX, paddingY);
+			ctx.lineTo(this.canvasWidth / 4 + paddingX, this.canvasHeight - 2 * paddingY);
 			ctx.strokeStyle = "#000000";
 			ctx.setLineDash([5, 5]);
 			ctx.stroke();
@@ -80,37 +82,36 @@ export class UnitcirclePage {
 			}
 
 			// unit 1 corresponds to 140 (radius)
-			var sinLength = -this.sin * 70;
-			var cosLength = this.cos * 70;
-			var tanLenght = this.tan * 70;
+			var sinLength = -this.sin * (this.canvasHeight / 4);
+			var cosLength = this.cos * (this.canvasWidth / 4);
 
 			// unit line
 			ctx.beginPath();
-			ctx.moveTo(75, 75);
+			ctx.moveTo(this.canvasWidth / 4 + paddingX, this.canvasHeight / 4 + paddingY);
 			// -sin and -cos will subtracted
-			ctx.lineTo(75 + cosLength, 75 + sinLength);
+			ctx.lineTo(this.canvasWidth / 4 + paddingX + cosLength, this.canvasHeight / 4 + paddingY + sinLength);
 			ctx.strokeStyle="#000000";
 			ctx.stroke();
 			// sinus line
 			ctx.beginPath();
-			ctx.moveTo(75 + cosLength, 75);
+			ctx.moveTo(this.canvasWidth / 4 + cosLength + paddingX, this.canvasHeight / 4 + paddingY);
 			// -sin and -cos will subtracted
-			ctx.lineTo(75 + cosLength, 75 + sinLength);
+			ctx.lineTo(this.canvasWidth / 4 + cosLength + paddingX, this.canvasHeight / 4 + paddingY + sinLength);
 			ctx.strokeStyle="#FF0000";
 			ctx.stroke();
 			// cosinus line
 			ctx.beginPath();
-			ctx.moveTo(75, 75);
-			ctx.lineTo(75 + cosLength, 75);
+			ctx.moveTo(this.canvasWidth / 4 + paddingX, this.canvasHeight / 4 + paddingY);
+			ctx.lineTo(this.canvasWidth / 4 + paddingX + cosLength, this.canvasHeight / 4 + paddingY);
 			ctx.strokeStyle="#00FF00";
 			ctx.stroke();
-			// draw angle circle
+      // draw angle circle
 			ctx.beginPath();
-			ctx.arc(75, 75, 30, 0 * (Math.PI / 180), -this.values.current * (Math.PI / 180), true);
+			ctx.arc(this.canvasWidth / 4 + paddingX, this.canvasHeight / 4 + paddingY, 30, 0 * (Math.PI / 180), -this.values.current * (Math.PI / 180), true);
 			ctx.strokeStyle="#555555";
 			ctx.stroke();
 
-			ctx.fillText(this.values.current + "°", 75 + 4, 75 - 10);
+			ctx.fillText(this.values.current + "°", this.canvasWidth / 4 + paddingX + 4, this.canvasHeight / 4 + paddingY - 10);
     }
   }
 
