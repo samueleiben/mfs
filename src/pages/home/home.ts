@@ -17,7 +17,7 @@ export class HomePage {
     this.components = [
       {title: 'Roots', desc: 'Take nth root of a number', page: RootsPage},
       {title: 'Unitcircle', desc: 'Graphical representation of sin cos and tan', page: UnitcirclePage},
-      {title: 'Quadratic formula', page: QuadraticFormulaPage}
+      {title: 'Quadratic formula', desc: '', page: QuadraticFormulaPage} // don't leave desc out, empty desc is needed that no build errors occur
     ]
   }
 
