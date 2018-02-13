@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 
 import { RootsPage } from '../roots/roots'
 import { UnitcirclePage } from '../unitcircle/unitcircle'
+import { QuadraticFormulaPage } from '../quadraticformula/quadraticformula'
 
 @Component({
   selector: 'page-home',
@@ -15,7 +16,8 @@ export class HomePage {
   constructor(public navCtrl: NavController) {
     this.components = [
       {title: 'Roots', desc: 'Take nth root of a number', page: RootsPage},
-      {title: 'Unitcircle', desc: 'Graphical representation of sin cos and tan', page: UnitcirclePage}
+      {title: 'Unitcircle', desc: 'Graphical representation of sin cos and tan', page: UnitcirclePage},
+      {title: 'Quadratic formula', page: QuadraticFormulaPage}
     ]
   }
 

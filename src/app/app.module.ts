@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
+import { ErrorHandler, NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { RootsPage } from '../pages/roots/roots';
 import { UnitcirclePage } from '../pages/unitcircle/unitcircle';
+import { QuadraticFormulaPage } from '../pages/quadraticformula/quadraticformula';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -16,7 +17,8 @@ import { Clipboard } from '@ionic-native/clipboard';
     MyApp,
     HomePage,
     RootsPage,
-    UnitcirclePage
+    UnitcirclePage,
+    QuadraticFormulaPage
   ],
   imports: [
     BrowserModule,
@@ -27,13 +29,15 @@ import { Clipboard } from '@ionic-native/clipboard';
     MyApp,
     HomePage,
     RootsPage,
-    UnitcirclePage
+    UnitcirclePage,
+    QuadraticFormulaPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Clipboard,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
-  ]
+  ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule {}

@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Quadratic formula</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card (keyup.enter)="calculate()">
+    <ion-item>
+      <ion-label stacked>a</ion-label>
+      <ion-input type="number" value="{{inputs.a}}" [(ngModel)]="inputs.a"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>b</ion-label>
+      <ion-input type="number" value="{{inputs.b}}" [(ngModel)]="inputs.b"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>c</ion-label>
+      <ion-input type="number" value="{{inputs.c}}" [(ngModel)]="inputs.c"></ion-input>
+    </ion-item>
+	</ion-card>
+
+	<button id="calcValues" ion-button full (click)="calculate()">
+		<span class="button-inner">Calculate values</span>
+	</button>
+
+  <ion-card>
+    <ion-card-header>
+      {{results.txt}}
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          {{results.first}}
+        </ion-item>
+        <ion-item *ngIf="results.first != results.second">
+          {{results.second}}
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

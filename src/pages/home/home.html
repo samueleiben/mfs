@@ -8,7 +8,7 @@
           <ion-card-header>
             {{c.title}}
           </ion-card-header>
-          <ion-card-content>
+          <ion-card-content *ngIf="c.desc">
             {{c.desc}}
           </ion-card-content>
         </ion-card>
