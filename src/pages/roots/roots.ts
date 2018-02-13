@@ -14,7 +14,7 @@ export class RootsPage {
   constructor(public navCtrl: NavController, public plt: Platform) {
     this.canvasWidth = (plt.width() - 60) / 4; // canvasHeight is calculated in redrawCanvas
 
-    this.nthRoot = {txt: '3rd', value: 3, input: 3};
+    this.nthRoot = {txt: '3rd', value: 3, input: 0};
     this.result = 0;
   }
 
