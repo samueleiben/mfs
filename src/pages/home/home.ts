@@ -9,13 +9,10 @@ import { UnitcirclePage } from '../unitcircle/unitcircle'
   templateUrl: 'home.html'
 })
 export class HomePage {
-  navCtrl: NavController;
 
   components: Array<{title: string, desc: string, page: any}>;
 
-  constructor(public navController: NavController) {
-    this.navCtrl = navController;
-
+  constructor(public navCtrl: NavController) {
     this.components = [
       {title: 'Roots', desc: 'Take nth root of a number', page: RootsPage},
       {title: 'Unitcircle', desc: 'Graphical representation of sin cos and tan', page: UnitcirclePage}

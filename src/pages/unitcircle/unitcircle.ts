@@ -7,8 +7,6 @@ import { Clipboard } from '@ionic-native/clipboard';
   templateUrl: 'unitcircle.html'
 })
 export class UnitcirclePage {
-  clipboard: Clipboard;
-
   values: {min: number, max: number, current: number};
   canvasHeight: number;
   canvasWidth: number;
@@ -16,8 +14,7 @@ export class UnitcirclePage {
   cos: number;
   tan: number;
 
-  constructor(public navCtrl: NavController, public plt: Platform, public clpb: Clipboard, private toastCtrl: ToastController) {
-    this.clipboard = clpb;
+  constructor(public navCtrl: NavController, public plt: Platform, public clipboard: Clipboard, private toastCtrl: ToastController) {
 
     this.canvasWidth = plt.width();
     this.canvasHeight = this.canvasWidth; // canvas should be a square
