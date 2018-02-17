@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Parser } from './parser';
+import { Parser } from '../../common/parser';
 
 @Component({
   selector: 'page-graphplotter',
