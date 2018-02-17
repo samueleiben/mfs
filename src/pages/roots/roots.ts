@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, Platform } from 'ionic-angular';
+import { Platform } from 'ionic-angular';
 
 @Component({
   selector: 'page-roots',
@@ -11,7 +11,7 @@ export class RootsPage {
   canvasHeight: number;
   canvasWidth: number;
 
-  constructor(public navCtrl: NavController, public plt: Platform) {
+  constructor(public plt: Platform) {
     this.canvasWidth = (plt.width() - 60) / 4; // canvasHeight is calculated in redrawCanvas
 
     this.nthRoot = {txt: '3rd', value: 3, input: 0};

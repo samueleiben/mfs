@@ -33,7 +33,7 @@ export class Parser {
         this.functions.forEach(f => {
           if(f == formula.substring(i, i + f.length)) {
             let subParsed = this.parseReq(formula, i + f.length + 1, level + 1);
-            let result = this.executeFunction(f, subParsed.result);
+            let result = this.executeFunction(f, subParsed.result, null);
             formula = this.replacePart(formula, i, subParsed.returnIndex, result);
           }
         });
@@ -105,7 +105,7 @@ export class Parser {
     this.functions.forEach(f => {
       if(f == formula.substring(index, index + f.length)) {
         let subParsed = this.parseReq(formula, index + f.length + 1, 1);
-        let result = this.executeFunction(f, subParsed.result);
+        let result = this.executeFunction(f, subParsed.result, null);
         formula = this.replacePart(formula, index, subParsed.returnIndex, result);
       }
     });
@@ -123,19 +123,19 @@ export class Parser {
   executeFunction(f: string, value1: string, value2: string) {
     let result;
     if(f == 'log') {
-      result = Math.log(value1);
+      result = Math.log(parseInt(value1));
     } else if(f == 'cos') {
-      result = Math.cos(value1);
+      result = Math.cos(parseInt(value1));
     } else if(f == 'sin') {
-      result = Math.sin(value1);
+      result = Math.sin(parseInt(value1));
     } else if(f == 'tan') {
-      result = Math.tan(value1);
+      result = Math.tan(parseInt(value1));
     } else if(f == 'sqrt') {
-      result = Math.sqrt(value1);
+      result = Math.sqrt(parseInt(value1));
     } else if(f == '^') {
-      result = Math.pow(value1, value2);
+      result = Math.pow(parseInt(value1), parseInt(value2));
     } else if(f == 'abs') {
-      result = Math.abs(value1);
+      result = Math.abs(parseInt(value1));
     } else {
       console.log('unknown function call detected: ' + f);
     }

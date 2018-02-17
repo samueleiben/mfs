@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ToastController, Platform } from 'ionic-angular';
+import { ToastController, Platform } from 'ionic-angular';
 import { Clipboard } from '@ionic-native/clipboard';
 
 @Component({
@@ -14,7 +14,7 @@ export class UnitcirclePage {
   cos: number;
   tan: number;
 
-  constructor(public navCtrl: NavController, public plt: Platform, public clipboard: Clipboard, private toastCtrl: ToastController) {
+  constructor(public plt: Platform, public clipboard: Clipboard, private toastCtrl: ToastController) {
 
     this.canvasWidth = plt.width();
     this.canvasHeight = this.canvasWidth; // canvas should be a square
