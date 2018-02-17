@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { RootsPage } from '../pages/roots/roots';
 import { UnitcirclePage } from '../pages/unitcircle/unitcircle';
 import { QuadraticFormulaPage } from '../pages/quadraticformula/quadraticformula';
+import { GraphPlotterPage } from '../pages/graphplotter/graphplotter';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -18,7 +19,8 @@ import { Clipboard } from '@ionic-native/clipboard';
     HomePage,
     RootsPage,
     UnitcirclePage,
-    QuadraticFormulaPage
+    QuadraticFormulaPage,
+    GraphPlotterPage
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,8 @@ import { Clipboard } from '@ionic-native/clipboard';
     HomePage,
     RootsPage,
     UnitcirclePage,
-    QuadraticFormulaPage
+    QuadraticFormulaPage,
+    GraphPlotterPage
   ],
   providers: [
     StatusBar,

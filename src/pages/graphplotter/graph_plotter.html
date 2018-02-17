@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Graph plotter</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-item>
+      <ion-label stacked>Formula</ion-label>
+      <ion-input value="{{formula}}" [(ngModel)]="formula"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>x</ion-label>
+      <ion-input type="number" value="{{x}}" [(ngModel)]="x"></ion-input>
+    </ion-item>
+	</ion-card>
+
+	<button id="calcValues" ion-button full (click)="calculate(x)">
+		<span class="button-inner">Draw</span>
+	</button>
+
+  <ion-card>
+    <ion-card-header>
+      Result
+    </ion-card-header>
+    <ion-card-content>
+      {{result}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>
