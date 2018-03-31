@@ -10,7 +10,9 @@ android:
     - android-26
 before_script:
   - sudo apt-get update
-  - sudo apt-get install nodejs npm
+  - sudo apt-get install curl
+  - curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+  - sudo apt-get install -y nodejs
   - sudo npm config set strict-ssl false
   - sudo npm install -g ionic cordova
   - sudo npm install
