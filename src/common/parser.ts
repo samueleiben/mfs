@@ -7,7 +7,6 @@ export class Parser {
 
   parse(x: number) {
     let replaced = this.prepare(x, this.formula);
-    console.log(replaced);
     return this.parseReq(replaced, 0, 0).result;
   }
 
@@ -85,7 +84,6 @@ export class Parser {
         if(formula.substring(startIndex, i).length == 0) { // prevent error when calling eval with an empty string (undefined)
           continue;
         }
-        console.log(formula.substring(startIndex, i));
         res = eval(formula.substring(startIndex, i));
         if(level > 0) {
           break;
@@ -139,7 +137,6 @@ export class Parser {
     } else {
       console.log('unknown function call detected: ' + f);
     }
-    console.log('Function: ' + f + ' | value: ' + value1 + ' | result: ' + result);
     return result;
   }
 
