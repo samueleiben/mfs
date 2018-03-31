@@ -1,9 +1,16 @@
 dist: trusty
 sudo: required
-language: node_js
-node_js:
-  - "node"
+language: android
+android:
+  components:
+    - tools
+    - platform-tools
+    - tools
+    - build-tools-26.0.2
+    - android-26
 before_script:
+  - sudo apt-get update
+  - sudo apt-get install nodejs npm
   - npm install -g ionic cordova
   - npm install
 script:
