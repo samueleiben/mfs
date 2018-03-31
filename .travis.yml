@@ -11,8 +11,8 @@ android:
 before_script:
   - sudo apt-get update
   - sudo apt-get install nodejs npm
-  - npm config set strict-ssl false
-  - npm install -g ionic cordova
-  - npm install
+  - sudo npm config set strict-ssl false
+  - sudo npm install -g ionic cordova
+  - sudo npm install
 script:
   - ionic cordova build android
