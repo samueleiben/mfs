@@ -17,4 +17,4 @@ before_script:
   - sudo npm install -g ionic cordova
   - sudo npm install --unsafe-perm=true --allow-root
 script:
-  - sudo ionic cordova build android
+  - sudo ionic cordova build --release android
