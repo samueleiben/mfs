@@ -8,6 +8,8 @@ android:
     - tools
     - build-tools-26.0.2
     - android-26
+install:
+  - JAVA_HOME=$(jdk_switcher home openjdk8) ./gradlew classes testClasses
 before_script:
   - sudo apt-get update
   - sudo apt-get install curl
