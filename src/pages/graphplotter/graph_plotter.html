@@ -13,22 +13,18 @@
       <ion-label stacked>Formula</ion-label>
       <ion-input value="{{formula}}" [(ngModel)]="formula"></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-label stacked>x</ion-label>
-      <ion-input type="number" value="{{x}}" [(ngModel)]="x"></ion-input>
-    </ion-item>
 	</ion-card>
 
-	<button id="calcValues" ion-button full (click)="calculate(x)">
+	<button id="calcValues" ion-button full (click)="plot()">
 		<span class="button-inner">Draw</span>
 	</button>
 
-  <ion-card>
-    <ion-card-header>
-      Result
-    </ion-card-header>
-    <ion-card-content>
-      {{result}}
-    </ion-card-content>
-  </ion-card>
+  <ion-item>
+    Graph
+  </ion-item>
+
+  <canvas id="graph_canvas">
+    Canvas is not supported by your devices browser.
+  </canvas>
+
 </ion-content>
